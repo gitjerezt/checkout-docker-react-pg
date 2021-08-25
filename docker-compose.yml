@@ -1,20 +1,20 @@
 version: '3'
 
 services:
-  # client:
-  #   build: front/
-  #   depends_on:
-  #     - backend
-  #   ports: 
-  #     - '3000:3000'
+  client:
+    build: front/
+    depends_on:
+      - backend
+    ports: 
+      - '3000:3000'
 
-  # backend:
-  #   build: server/
-  #   depends_on:
-  #     - postgres
-  #   ports:
-  #     - '3001:3001'
-  #   command: sh -c "npx knex migrate:latest && npx knex seed:run && npm start"
+  backend:
+    build: server/
+    depends_on:
+      - postgres
+    ports:
+      - '3001:3001'
+    command: sh -c "npx knex migrate:latest && npx knex seed:run && npm start"
 
 
   postgres:
