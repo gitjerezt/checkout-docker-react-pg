@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  # client:
+  #   build: front/
+  #   depends_on:
+  #     - backend
+  #   ports: 
+  #     - '3000:3000'
+
+  # backend:
+  #   build: server/
+  #   depends_on:
+  #     - postgres
+  #   ports:
+  #     - '3001:3001'
+  #   command: sh -c "npx knex migrate:latest && npx knex seed:run && npm start"
+
+
+  postgres:
+    image: "postgres"
+    container_name: "postgres_docker"
+    
+    # Postgres environment parameters
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=docker
+    - POSTGRES_DB=checkpointdb
+
+    # Bind mount the default Postgres port
+    ports:
+    - "5432:5432"
+
+    # Bind mount local volume for Postgres data
+
+    # volumes:
+    # - ./db/pg-data:/var/lib/postgresql/data
+
+    
